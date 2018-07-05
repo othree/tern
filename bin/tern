@@ -50,10 +50,11 @@ var defaultConfig = {
   loadEagerly: false,
   plugins: {doc_comment: true},
   ecmaScript: true,
-  ecmaVersion: 6,
+  ecmaVersion: 8,
   dependencyBudget: tern.defaultOptions.dependencyBudget
 };
 var homeDir = process.env.HOME || process.env.USERPROFILE;
+
 if (homeDir && fs.existsSync(path.resolve(homeDir, ".tern-config")))
   defaultConfig = readProjectFile(path.resolve(homeDir, ".tern-config"));
 

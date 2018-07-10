@@ -8,10 +8,13 @@
     "keyvalue": {
       "name": "string",
       "value": "string"
+    },
+    "handler": {
+      "!type": "fn(+jQuery.Event)"
     }
   },
   "jQuery": {
-    "!type": "fn(selector: string, context?: frameElement) -> jQuery.fn",
+    "!type": "fn(selector?: ?, context?: ?) -> jQuery.fn",
     "!url": "http://api.jquery.com/jquery/",
     "!doc": "Return a collection of matched elements either found in the DOM based on passed argument(s) or created by passing an HTML string.",
     "fn": {
@@ -96,17 +99,17 @@
         "!doc": "Insert content, specified by the parameter, before each element in the set of matched elements."
       },
       "bind": {
-        "!type": "fn(eventType: string, handler: fn(+jQuery.Event)) -> jQuery.fn",
+        "!type": "fn(eventType: string, handler: handler) -> jQuery.fn",
         "!url": "http://api.jquery.com/bind/",
         "!doc": "Attach a handler to an event for the elements."
       },
       "blur": {
-        "!type": "fn(handler: fn(+jQuery.Event)) -> jQuery.fn",
+        "!type": "fn(data?: handler, handler: handler) -> jQuery.fn",
         "!url": "http://api.jquery.com/blur/",
         "!doc": "Bind an event handler to the 'blur' JavaScript event, or trigger that event on an element."
       },
       "change": {
-        "!type": "fn(handler: fn(+jQuery.Event)) -> jQuery.fn",
+        "!type": "fn(data?: handler, handler?: handler) -> jQuery.fn",
         "!url": "http://api.jquery.com/change/",
         "!doc": "Bind an event handler to the 'change' JavaScript event, or trigger that event on an element."
       },
@@ -116,7 +119,7 @@
         "!doc": "Get the children of each element in the set of matched elements, optionally filtered by a selector."
       },
       "click": {
-        "!type": "fn(handler: fn(+jQuery.Event)) -> jQuery.fn",
+        "!type": "fn(data?: handler, handler?: handler) -> jQuery.fn",
         "!url": "http://api.jquery.com/click/",
         "!doc": "Bind an event handler to the 'click' JavaScript event, or trigger that event on an element."
       },
@@ -135,10 +138,10 @@
         "!url": "http://api.jquery.com/contents/",
         "!doc": "Get the children of each element in the set of matched elements, including text and comment nodes."
       },
-      "context": {
-        "!type": "fn() -> +Element",
-        "!url": "http://api.jquery.com/context/",
-        "!doc": "The DOM node context originally passed to jQuery(); if none was passed then context will likely be the document."
+      "contextmenu": {
+        "!type": "fn(data?: handler, handler?: handler) -> jQuery.fn",
+        "!url": "https://api.jquery.com/contextmenu/",
+        "!doc": "Bind an event handler to the \"contextmenu\" JavaScript event, or trigger that event on an element."
       },
       "css": {
         "!type": "fn(name: string, value?: string) -> string",
@@ -151,7 +154,7 @@
         "!doc": "Store arbitrary data associated with the matched elements or return the value at the named data store for the first element in the set of matched elements."
       },
       "dblclick": {
-        "!type": "fn(handler: fn(+jQuery.Event)) -> jQuery.fn",
+        "!type": "fn(data?: handler, handler?: handler) -> jQuery.fn",
         "!url": "http://api.jquery.com/dblclick/",
         "!doc": "Bind an event handler to the 'dblclick' JavaScript event, or trigger that event on an element."
       },
@@ -161,7 +164,7 @@
         "!doc": "Set a timer to delay execution of subsequent items in the queue."
       },
       "delegate": {
-        "!type": "fn(selector: string, eventType: string, handler: fn(+jQuery.Event)) -> jQuery.fn",
+        "!type": "fn(selector: string, eventType: string, data?: handler, handler?: handler) -> jQuery.fn",
         "!url": "http://api.jquery.com/delegate/",
         "!doc": "Attach a handler to one or more events for all elements that match the selector, now or in the future, based on a specific set of root elements."
       },
@@ -176,7 +179,7 @@
         "!doc": "Remove the set of matched elements from the DOM."
       },
       "die": {
-        "!type": "fn() -> jQuery.fn",
+        "!type": "fn(events: string|?, handler?: handler) -> jQuery.fn",
         "!url": "http://api.jquery.com/die/",
         "!doc": "Remove event handlers previously attached using .live() from the elements."
       },
@@ -201,9 +204,14 @@
         "!doc": "Reduce the set of matched elements to the one at the specified index."
       },
       "error": {
-        "!type": "fn(handler: fn(+jQuery.Event)) -> jQuery.fn",
+        "!type": "fn(handler: handler) -> jQuery.fn",
         "!url": "http://api.jquery.com/error/",
         "!doc": "Bind an event handler to the 'error' JavaScript event."
+      },
+      "escapeSelector": {
+        "!type": "fn(selector: string) -> string",
+        "!url": "https://api.jquery.com/jQuery.escapeSelector/",
+        "!doc": "Escapes any character that has a special meaning in a CSS selector."
       },
       "fadeIn": {
         "!type": "fn(duration?: number, complete?: fn()) -> jQuery.fn",
@@ -245,13 +253,18 @@
         "!url": "http://api.jquery.com/first/",
         "!doc": "Reduce the set of matched elements to the first in the set."
       },
+      "focus": {
+        "!type": "fn(data?: handler, handler?: handler) -> jQuery.fn",
+        "!url": "http://api.jquery.com/focusin/",
+        "!doc": "Bind an event handler to the 'focusin' event."
+      },
       "focusin": {
-        "!type": "fn(handler: fn(+jQuery.Event)) -> jQuery.fn",
+        "!type": "fn(data?: handler, handler?: handler) -> jQuery.fn",
         "!url": "http://api.jquery.com/focusin/",
         "!doc": "Bind an event handler to the 'focusin' event."
       },
       "focusout": {
-        "!type": "fn(handler: fn(+jQuery.Event)) -> jQuery.fn",
+        "!type": "fn(data?: handler, handler?: handler) -> jQuery.fn",
         "!url": "http://api.jquery.com/focusout/",
         "!doc": "Bind an event handler to the 'focusout' JavaScript event."
       },
@@ -281,7 +294,7 @@
         "!doc": "Hide the matched elements."
       },
       "hover": {
-        "!type": "fn(fnOver: fn(+jQuery.Event), fnOut?: fn(+jQuery.Event)) -> jQuery.fn",
+        "!type": "fn(fnOver: handler, fnOut?: handler) -> jQuery.fn",
         "!url": "http://api.jquery.com/hover/",
         "!doc": "Bind one or two handlers to the matched elements, to be executed when the mouse pointer enters and leaves the elements."
       },
@@ -326,17 +339,17 @@
         "!doc": "A string containing the jQuery version number."
       },
       "keydown": {
-        "!type": "fn(handler: fn(+jQuery.Event)) -> jQuery.fn",
+        "!type": "fn(data?: handler, handler?: handler) -> jQuery.fn",
         "!url": "http://api.jquery.com/keydown/",
         "!doc": "Bind an event handler to the 'keydown' JavaScript event, or trigger that event on an element."
       },
       "keypress": {
-        "!type": "fn(handler: fn(+jQuery.Event)) -> jQuery.fn",
+        "!type": "fn(data?: handler, handler?: handler) -> jQuery.fn",
         "!url": "http://api.jquery.com/keypress/",
         "!doc": "Bind an event handler to the 'keypress' JavaScript event, or trigger that event on an element."
       },
       "keyup": {
-        "!type": "fn(handler: fn(+jQuery.Event)) -> jQuery.fn",
+        "!type": "fn(data?: handler, handler?: handler) -> jQuery.fn",
         "!url": "http://api.jquery.com/keyup/",
         "!doc": "Bind an event handler to the 'keyup' JavaScript event, or trigger that event on an element."
       },
@@ -351,12 +364,12 @@
         "!doc": "The number of elements in the jQuery object."
       },
       "live": {
-        "!type": "fn(selector: string, handler: fn(+jQuery.Event)) -> jQuery.fn",
+        "!type": "fn(events: string|?, data?: handler, handler?: handler) -> jQuery.fn",
         "!url": "http://api.jquery.com/live/",
         "!doc": "Attach an event handler for all elements which match the current selector, now and in the future."
       },
       "load": {
-        "!type": "fn(handler: fn()) -> jQuery.fn",
+        "!type": "fn(data?: handler, handler?: handler) -> jQuery.fn",
         "!url": "http://api.jquery.com/load/",
         "!doc": "Load data from the server and place the returned HTML into the matched element."
       },
@@ -366,37 +379,37 @@
         "!doc": "Pass each element in the current matched set through a function, producing a new jQuery object containing the return values."
       },
       "mousedown": {
-        "!type": "fn(handler: fn(+jQuery.Event)) -> jQuery.fn",
+        "!type": "fn(data?: handler, handler?: handler) -> jQuery.fn",
         "!url": "http://api.jquery.com/mousedown/",
         "!doc": "Bind an event handler to the 'mousedown' JavaScript event, or trigger that event on an element."
       },
       "mouseenter": {
-        "!type": "fn(handler: fn(+jQuery.Event)) -> jQuery.fn",
+        "!type": "fn(data?: handler, handler?: handler) -> jQuery.fn",
         "!url": "http://api.jquery.com/mouseenter/",
         "!doc": "Bind an event handler to be fired when the mouse enters an element, or trigger that handler on an element."
       },
       "mouseleave": {
-        "!type": "fn(handler: fn(+jQuery.Event)) -> jQuery.fn",
+        "!type": "fn(data?: handler, handler?: handler) -> jQuery.fn",
         "!url": "http://api.jquery.com/mouseleave/",
         "!doc": "Bind an event handler to be fired when the mouse leaves an element, or trigger that handler on an element."
       },
       "mousemove": {
-        "!type": "fn(handler: fn(+jQuery.Event)) -> jQuery.fn",
+        "!type": "fn(data?: handler, handler?: handler) -> jQuery.fn",
         "!url": "http://api.jquery.com/mousemouve/",
         "!doc": "Bind an event handler to the 'mousemove' JavaScript event, or trigger that event on an element."
       },
       "mouseout": {
-        "!type": "fn(handler: fn(+jQuery.Event)) -> jQuery.fn",
+        "!type": "fn(data?: handler, handler?: handler) -> jQuery.fn",
         "!url": "http://api.jquery.com/mouseout/",
         "!doc": "Bind an event handler to the 'mouseout' JavaScript event, or trigger that event on an element."
       },
       "mouseover": {
-        "!type": "fn(handler: fn(+jQuery.Event)) -> jQuery.fn",
+        "!type": "fn(data?: handler, handler?: handler) -> jQuery.fn",
         "!url": "http://api.jquery.com/mouseover/",
         "!doc": "Bind an event handler to the 'mouseover' JavaScript event, or trigger that event on an element."
       },
       "mouseup": {
-        "!type": "fn(handler: fn(+jQuery.Event)) -> jQuery.fn",
+        "!type": "fn(data?: handler, handler?: handler) -> jQuery.fn",
         "!url": "http://api.jquery.com/mouseup/",
         "!doc": "Bind an event handler to the 'mouseup' JavaScript event, or trigger that event on an element."
       },
@@ -421,7 +434,7 @@
         "!doc": "Remove elements from the set of matched elements."
       },
       "off": {
-        "!type": "fn(events: string, selector?: string, handler: fn(+jQuery.Event)) -> jQuery.fn",
+        "!type": "fn(events: string, selector?: string, handler?: handler) -> jQuery.fn",
         "!url": "http://api.jquery.com/off/",
         "!doc": "Remove an event handler."
       },
@@ -436,12 +449,12 @@
         "!doc": "Get the closest ancestor element that is positioned."
       },
       "on": {
-        "!type": "fn(events: string, handler: fn(+jQuery.Event)) -> jQuery.fn",
+        "!type": "fn(events: string, selector?: string, data?: handler, handler?: handler) -> jQuery.fn",
         "!url": "http://api.jquery.com/on/",
         "!doc": "Attach an event handler function for one or more events to the selected elements."
       },
       "one": {
-        "!type": "fn(events: string, data?: ?, handler: fn(+jQuery.Event)) -> jQuery.fn",
+        "!type": "fn(events: string, selector?: string, data?: handler, handler?: handler) -> jQuery.fn",
         "!url": "http://api.jquery.com/one/",
         "!doc": "Attach a handler to an event for the elements. The handler is executed at most once per element."
       },
@@ -525,6 +538,11 @@
         "!url": "http://api.jquery.com/ready/",
         "!doc": "Specify a function to execute when the DOM is fully loaded."
       },
+      "readyException": {
+        "!type": "fn(error: +Error) -> selector",
+        "!url": "https://api.jquery.com/jQuery.readyException/",
+        "!doc": "Handles errors thrown synchronously in functions wrapped in jQuery()."
+      },
       "remove": {
         "!type": "fn(selector?: string) -> jQuery.fn",
         "!url": "http://api.jquery.com/remove/",
@@ -561,12 +579,12 @@
         "!doc": "Replace each element in the set of matched elements with the provided new content and return the set of elements that was removed."
       },
       "resize": {
-        "!type": "fn(handler: fn(+jQuery.Event)) -> jQuery.fn",
+        "!type": "fn(data?: handler, handler?: handler) -> jQuery.fn",
         "!url": "http://api.jquery.com/resize/",
         "!doc": "Bind an event handler to the 'resize' JavaScript event, or trigger that event on an element."
       },
       "scroll": {
-        "!type": "fn(handler: fn(+jQuery.Event)) -> jQuery.fn",
+        "!type": "fn(data?: handler, handler?: handler) -> jQuery.fn",
         "!url": "http://api.jquery.com/scroll/",
         "!doc": "Bind an event handler to the 'scroll' JavaScript event, or trigger that event on an element."
       },
@@ -581,7 +599,7 @@
         "!doc": "Get the current vertical position of the scroll bar for the first element in the set of matched elements or set the vertical position of the scroll bar for every matched element."
       },
       "select": {
-        "!type": "fn(handler: fn(+jQuery.Event)) -> jQuery.fn",
+        "!type": "fn(data?: handler, handler?: handler) -> jQuery.fn",
         "!url": "http://api.jquery.com/select/",
         "!doc": "Bind an event handler to the 'select' JavaScript event, or trigger that event on an element."
       },
@@ -641,7 +659,7 @@
         "!doc": "Stop the currently-running animation on the matched elements."
       },
       "submit": {
-        "!type": "fn(handler: fn(+jQuery.Event)) -> jQuery.fn",
+        "!type": "fn(data?: handler, handler?: handler) -> jQuery.fn",
         "!url": "http://api.jquery.com/submit/",
         "!doc": "Bind an event handler to the 'submit' JavaScript event, or trigger that event on an element."
       },
@@ -666,12 +684,12 @@
         "!doc": "Add or remove one or more classes from each element in the set of matched elements, depending on either the class's presence or the value of the switch argument."
       },
       "trigger": {
-        "!type": "fn(eventType: string, params: ?) -> jQuery.fn",
+        "!type": "fn(eventType: string|+jQuery.Event, params?: ?) -> jQuery.fn",
         "!url": "http://api.jquery.com/trigger/",
         "!doc": "Execute all handlers and behaviors attached to the matched elements for the given event type."
       },
       "triggerHandler": {
-        "!type": "fn(eventType: string, params: ?) -> ?",
+        "!type": "fn(eventType: string|+jQuery.Event, params: ?) -> ?",
         "!url": "http://api.jquery.com/triggerHandler/",
         "!doc": "Execute all handlers attached to an element for an event."
       },
@@ -681,13 +699,18 @@
         "!doc": "Remove a previously-attached event handler from the elements."
       },
       "undelegate": {
-        "!type": "fn() -> jQuery.fn",
+        "!type": "fn(selector?: string, eventType?: string, handler?: handler) -> jQuery.fn",
         "!url": "http://api.jquery.com/undelegate/",
         "!doc": "Remove a handler from the event for all elements which match the current selector, based upon a specific set of root elements."
       },
-      "unload": {
-        "!type": "fn(handler: fn(+jQuery.Event)) -> jQuery.fn",
+      "uniqueSort": {
+        "!type": "fn(array: [?]) -> [?]",
         "!url": "http://api.jquery.com/unload/",
+        "!doc": "Sorts an array of DOM elements, in place, with the duplicates removed. Note that this only works on arrays of DOM elements, not strings or numbers."
+      },
+      "unload": {
+        "!type": "fn(data?: handler, handler?: handler) -> jQuery.fn",
+        "!url": "https://api.jquery.com/jQuery.uniqueSort/",
         "!doc": "Bind an event handler to the 'unload' JavaScript event."
       },
       "unwrap": {
@@ -945,6 +968,11 @@
           "!url": "http://api.jquery.com/deferred.always/",
           "!doc": "Add handlers to be called when the Deferred object is either resolved or rejected."
         },
+        "catch":{
+          "!type": "fn(callback: fn()) -> +jQuery.Deferred",
+          "!url": "https://api.jquery.com/deferred.catch/",
+          "!doc": "Add handlers to be called when the Deferred object is rejected. "
+        },
         "done":{
           "!type": "fn(callback: fn()) -> +jQuery.Deferred",
           "!url": "http://api.jquery.com/deferred.done/",
@@ -1027,6 +1055,7 @@
       "!doc": "A constructor function that returns a chainable utility object with methods to register multiple callbacks into callback queues, invoke callback queues, and relay the success or failure state of any synchronous or asynchronous function.",
       "prototype": {
         "always": "fn(callback: fn()) -> +jQuery.Promise",
+        "catch": "fn(callback: fn()) -> +jQuery.Promise",
         "done": "fn(callback: fn()) -> +jQuery.Promise",
         "fail": "fn(callback: fn()) -> +jQuery.Promise",
         "isRejected": "fn() -> bool",
@@ -1098,12 +1127,12 @@
       "start": "fn()"
     },
     "get":{
-      "!type": "fn(url: string, data?: ?, success: fn(data: string, textStatus: string, req: +XMLHttpRequest), dataType?: string) -> +jQuery.jqXHR",
+      "!type": "fn(url: string, data?: handler, success: fn(data: string, textStatus: string, req: +XMLHttpRequest), dataType?: string) -> +jQuery.jqXHR",
       "!url": "http://api.jquery.com/jquery.get/",
       "!doc": "Load data from the server using a HTTP GET request."
     },
     "getJSON": {
-      "!type": "fn(url: string, data?: ?, success: fn(data: ?, textStatus: string, req: +XMLHttpRequest)) -> +jQuery.jqXHR",
+      "!type": "fn(url: string, data?: handler, success: fn(data: ?, textStatus: string, req: +XMLHttpRequest)) -> +jQuery.jqXHR",
       "!url": "http://api.jquery.com/jquery.getJSON/",
       "!doc": "Load JSON-encoded data from the server using a GET HTTP request."
     },
@@ -1173,11 +1202,6 @@
       "!url": "http://api.jquery.com/jquery.isXMLDoc/",
       "!doc": "Check to see if a DOM node is within an XML document (or is an XML document)."
     },
-    "isFunction": {
-      "!type": "fn(obj: ?) -> bool",
-      "!url": "http://api.jquery.com/jquery.isFunction/",
-      "!doc": ""
-    },
     "makeArray": {
       "!type": "fn(obj: ?) -> [!0.<i>]",
       "!url": "http://api.jquery.com/jquery.makeArray/",
@@ -1230,7 +1254,7 @@
       "!doc": "Parses a string into an XML document."
     },
     "post": {
-      "!type": "fn(url: string, data?: ?, success: fn(data: string, textStatus: string, req: +XMLHttpRequest), dataType?: string) -> +jQuery.jqXHR",
+      "!type": "fn(url: string, data?: handler, success: fn(data: string, textStatus: string, req: +XMLHttpRequest), dataType?: string) -> +jQuery.jqXHR",
       "!url": "http://api.jquery.com/jquery.post/",
       "!doc": "Load data from the server using a HTTP POST request."
     },
@@ -1243,6 +1267,11 @@
       "!type": "fn(element: +Element, queue?: string) -> [?]",
       "!url": "http://api.jquery.com/jquery.queue/",
       "!doc": "Show or manipulate the queue of functions to be executed on the matched element."
+    },
+    "ready": {
+      "!type": "+Deferred",
+      "!url": "https://api.jquery.com/jQuery.ready/",
+      "!doc": "A Promise-like object (or \"thenable\") that resolves when the document is ready."
     },
     "removeData": {
       "!type": "fn(element: +Element, name?: string)",
